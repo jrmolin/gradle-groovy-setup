@@ -1,0 +1,15 @@
+apply plugin: 'groovy'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.0.5'
+    compile 'net.sf.json-lib:json-lib:2.4:jdk15'
+}
+
+task runScript (dependsOn: 'classes', type: JavaExec) {
+    main = 'myscript'
+    classpath = sourceSets.main.runtimeClasspath
+}
